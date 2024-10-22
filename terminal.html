@@ -63,7 +63,7 @@
             // Install shiny or any other package from PyPI
             await pyodide.runPythonAsync(`
                 import micropip
-                await micropip.install('shiny')
+                await micropip.install('shinylive')
             `);
 
             document.getElementById('run-btn').addEventListener('click', async () => {
