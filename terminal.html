@@ -57,6 +57,15 @@
             // Load the matplotlib package before running the code
             await pyodide.loadPackage("matplotlib");
 
+            // Load micropip (Pyodide's package manager for PyPI)
+            await pyodide.loadPackage("micropip");
+
+            // Install shiny or any other package from PyPI
+            await pyodide.runPythonAsync(`
+                import micropip
+                await micropip.install('shiny')
+            `);
+
             document.getElementById('run-btn').addEventListener('click', async () => {
                 const code = document.getElementById('code-area').value;
                 try {
